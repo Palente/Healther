@@ -1,5 +1,6 @@
 # Healther
 Plugin extends EconomyAPI by onebone
+get it here https://github.com/onebone/EconomyS/tree/master/EconomyAPI
 <h2>Francais</h2>
 <h3>Info</h3>
 <p>
