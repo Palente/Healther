@@ -1,5 +1,7 @@
 --- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/Palente/Healther
 branches:
 - master
-projects: Healther
+projects: 
+  Healther:
+    path:
 ...
