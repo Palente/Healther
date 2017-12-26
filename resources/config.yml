@@ -1,0 +1,10 @@
+...
+#Version 0.1 i work on it
+#------
+#set the amount of money to reduce when player use the command
+#cost: amount
+cost: 100
+#-----
+#set the name of the level when you want that command to not work
+#restrictedlevel: Faction
+restrictedlevel: null
