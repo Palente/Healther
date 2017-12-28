@@ -28,8 +28,8 @@ self::$logger->info("[Healther] Enabled");
 $eco = $this->getServer()->getPluginManager()->getPlugin("EconomyAPI");
 if(!$eco){
     $this->getLogger()->critical("ERROR: EconomyAPI???.");
-            $this->setEnabled(false);
-            $this->getServer()->getPluginManager()->disablePlugin($this->getServer()->getPluginManager()->getPlugin("Healther"));
+            #$this->setEnabled(false);
+            $this->getServer()->getPluginManager()->disablePlugin($this);
         }
 @mkdir($this->getDataFolder());
 if(!file_exists($this->getDataFolder() . "config.yml")) {
