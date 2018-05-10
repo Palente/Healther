@@ -1,10 +1,14 @@
 ...
 #Version 0.1 i work on it
 #------
-#set the amount of money to reduce when player use the command
+#Set the price of the usage of /heal
+#eg: When using /heal a player will pay 100$
 #cost: amount
 cost: 100
 #-----
-#set the name of the level when you want that command to not work
-#restrictedlevel: Faction
+#Set the name of the world where the command /heal will not work
+#Exemple
+#restrictedlevel: "FFA"
+#If you don't want any restriction in levels just put null
+#restrictedlevel: null
 restrictedlevel: null
