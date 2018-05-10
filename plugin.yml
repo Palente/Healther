@@ -2,11 +2,11 @@ name: Healther
 main: Palente\Healther\Main
 author: Palente
 version: 0.0.1
-api: [3.0.0-ALPHA4, 3.0.0-ALPHA7, 3.0.0-ALPHA8, 3.0.0-ALPHA9, 3.0.0-ALPHA10]
-description: Plugin using oney to heal player
+api: [3.0.0-ALPHA11,3.0.0-ALPHA12]
+description: "Heal command, Pay to be healed"
 depend: EconomyAPI
 
 commands:
   hl:
-  description: "Pay to heal"
+  description: "Pay to be healed"
   permission: healther.use
