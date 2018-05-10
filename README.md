@@ -18,12 +18,12 @@ ou comme tu le sens
 <h2>English</h2>
 <h3>Info</h3>
 <p>
-Autor: Palente
+Author: Palente
 Twitter: @Palente_Gaming
   Dev of PendoriaMCPE
-  i do that plugin for wait
 </p>
-<h3>Bug</h3>
+<h3>You have a bug?? or have a suggestion</h3>
 <p>
-A bug open a issue
-  </p>
+Feel free to open a issue</p>
+## Poggit
+- [![](https://poggit.pmmp.io/shield.state/Healther)](https://poggit.pmmp.io/p/Healther)
