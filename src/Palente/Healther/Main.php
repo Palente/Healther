@@ -13,11 +13,19 @@ class Main extends PluginBase{
 	public static $logger = null;
 	private $config;
 	public static $pr = "§a[Healther] §f";
+	public static $instance;
 	/**
 	*s'execute au chargement du plugin
 	*/
-	
+	public static function getInstance(){
+	return self::$instance;
+	}
+	public function onLoad(){
+		self::$instance =$this;
+    #Plus tard
+self::$logger = $this->getLogger();}
 	public function onEnable(){
+		
 $eco = $this->getServer()->getPluginManager()->getPlugin("EconomyAPI");
 if(!$eco){
     $this->getLogger()->critical("ERROR: I couldn't Find EconomyAPI!!Error :(");
@@ -79,7 +87,8 @@ if($cmd->getName() == "heal"){
 				$config->reload();
 				$sender->sendMessage($pr.TX::YELLOW."You have successfully set the new restricted level to ".$leveln);
 			
-				return;}else return;
+				return;}else{
+			return $sender->sendMessage($pr.TX::RED."Bad usage of command!! eg: /heal <level-cost> <namelevel-amount>");}
 		break;
 	}
 }
