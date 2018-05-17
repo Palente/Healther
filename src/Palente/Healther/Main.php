@@ -53,8 +53,10 @@ $player->setHealth(20);
 return true;
 }
 
-			public function onCommand(CommandSender $sender, Command $cmd, $label, array $args) {
+			public function onCommand(CommandSender $sender, Command $command, string $label, array $args) {
+				
 	$config = new Config($this->getDataFolder() . "config.yml", Config::YAML);
+				$cmd = $command;
 if($cmd->getName() == "heal"){
 	switch(count($args)){
 		case 0:
