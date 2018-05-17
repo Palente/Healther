@@ -53,10 +53,9 @@ $player->setHealth(20);
 return true;
 }
 
-			public function onCommand(CommandSender $sender, Command $command, string $label, array $args) {
-				
+public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool {
 	$config = new Config($this->getDataFolder() . "config.yml", Config::YAML);
-				$cmd = $command;
+	$cmd = $command;
 if($cmd->getName() == "heal"){
 	switch(count($args)){
 		case 0:
@@ -67,19 +66,24 @@ if($cmd->getName() == "heal"){
 				return false;
 			}
 		if(!$this->healPlayer($sender)){$sender->sendMessage($pr."You can't use the Heal command you don't have the required amount of money");
-				return false;}else{$sender->sendMessage($pr."You get healed");}
+				return false;
+}else{
+$sender->sendMessage($pr.TX::GREEN."You have been healed");
+return true;
+}
 		break;
 		case 2:
+		if(!$player->isOp()){
+			$sender->sendMessage($pr.TX::RED."You are trying to acces a content who need having the permission op! You don't have it");
+return false;
+}
 			if($args[0] == "money"){
-				if(!$player->isOp()) return false;
 			$mont = int($args[1]);
 				$config->set("cost",$mont);
 				$config->save();
 				$config->reload();
 				$sender->sendMessage($pr."You have setted the new cost of The /heal to".$cost);
 			}elseif($args[0] == "level"){
-			if(!$player->isOp()){ $sender->sendMessage($pr."You don't have the permission to use that command");
-					     return false;}
 				$leveln = $args[1];
 				$level = $this->getServer()->getLevelByName($leveln);
 				if(!$level instanceof Level){$sender->sendMessage($pr."Error: The level ".$leveln." seem to not exit");
@@ -87,11 +91,14 @@ if($cmd->getName() == "heal"){
 			$config->set("restrictedlevel",$level->getName());
 				$config->save();
 				$config->reload();
-				$sender->sendMessage($pr.TX::YELLOW."You have successfully set the new restricted level to ".$leveln);
-			
-				return;}else{
-			return $sender->sendMessage($pr.TX::RED."Bad usage of command!! eg: /heal <level-cost> <namelevel-amount>");}
+				$sender->sendMessage($pr.TX::YELLOW."You have successfully set the new restricted level to ".$leveln.". Now Players can't use the command /heal in this World");
+			return true ;
+}else{
+			$sender->sendMessage($pr.TX::RED."Bad usage of command!! eg: /heal <level-cost> <namelevel-amount>")
+return false;
+}
 		break;
 	}
 }
+return true;
 }}
