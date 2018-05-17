@@ -53,7 +53,7 @@ $player->setHealth(20);
 return true;
 }
 
-public function onCommand(CommandSender $sender, Command $command, string $label, array $args): bool {
+public function onCommand(CommandSender $sender, Command $command, string $label, array $args){
 	$config = new Config($this->getDataFolder() . "config.yml", Config::YAML);
 	$cmd = $command;
 if($cmd->getName() == "heal"){
@@ -86,15 +86,17 @@ return false;
 			}elseif($args[0] == "level"){
 				$leveln = $args[1];
 				$level = $this->getServer()->getLevelByName($leveln);
-				if(!$level instanceof Level){$sender->sendMessage($pr."Error: The level ".$leveln." seem to not exit");
-							     return false;}
+				if(!$level instanceof Level){
+$sender->sendMessage($pr."Error: The level ".$leveln." seem to not exit");
+							     return false;
+}
 			$config->set("restrictedlevel",$level->getName());
 				$config->save();
 				$config->reload();
-				$sender->sendMessage($pr.TX::YELLOW."You have successfully set the new restricted level to ".$leveln.". Now Players can't use the command /heal in this World");
+				$sender->sendMessage($pr.TX::YELLOW."You have successfully set the new restricted level to ".$leveln .". Now Players can't use the command /heal in this World");
 			return true ;
 }else{
-			$sender->sendMessage($pr.TX::RED."Bad usage of command!! eg: /heal <level-cost> <namelevel-amount>")
+			$sender->sendMessage($pr.TX::RED."Bad usage of command!! eg: /heal <level-cost> <namelevel-amount>");
 return false;
 }
 		break;
